@@ -1,7 +1,7 @@
 # BlogzApp
 A Full Fledged Blogging WebApp   , Write and Read articles
 # Technology Stack
-- FrontEnd - HTML,CSS,JS,Jquery
+- FrontEnd - HTML,CSS,JS,Jquery,EJS Templates
 - BackEnd - NodeJS
 - Database - MongoDB
 - Frameworks/Libraries - ExpreesJS,Mongoose ODM
