@@ -33,7 +33,7 @@
 
 
 
-                           <% if(currentUser && blog.user.id==currentUser.username) {%>
+                           <% if(currentUser && blog.user.id==currentUser.id) {%>
                             <div class="mt-3">     
                   <a href="/blogs/<%=blog._id%>/edit" class="btn btn-warning">Edit</a>
                  </div>

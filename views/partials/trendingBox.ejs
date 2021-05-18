@@ -12,7 +12,7 @@
     <h4 class="fs-6 ml-2 mb-3">Trending Writers</h4>
       <div style="margin-left:4px;padding:4px;">
      <% for(tt of trendingWriters) { %>
-        <a href="/publicProfile/<%= tt._id %>"><p  class="badge rounded-pill bg-secondary" style="font-size:0.8rem"><%= tt.username %></p>
+        <a href="/publicProfile/<%= tt._id %>"><p  class="badge rounded-pill bg-secondary" style="font-size:0.8rem"><%= tt.username %></p></a>
       <% }%>
     </div>
   </div>
