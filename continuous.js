@@ -10,7 +10,7 @@ const getTrendingBlogs = async()=>{
     var allTrending =await Trending.find({});
     var data={};
     for(var trending of allTrending)
-    {   // console.log(typeof(trending.hit));
+    {   
         if(data[trending.blogTrend])
         {
             data[trending.blogTrend]=data[trending.blogTrend]+trending.hit; 
@@ -23,7 +23,7 @@ const getTrendingBlogs = async()=>{
     trendings.sort(function(a, b){ return b['hit'] - a['hit'] });
     var mxLen = Math.min(4,trendings.length);
     trendings= trendings.splice(0,mxLen);
-    console.log(`hi my length ${trendings.length}`)
+   
     trendingsData =[];
     for(let tnd of trendings)
     {
@@ -31,9 +31,9 @@ const getTrendingBlogs = async()=>{
     trendingsData.push(obj);
     }
     
-    console.log(`hi my length noe ${trendingsData.length}`)
+   
  global.trendings= trendingsData;   
- console.log("updated");
+ 
 };
 
 const getTrendingTags = async()=>{
@@ -49,21 +49,21 @@ for(var trending of trendingTags)
     {
     data[trending.tag]=trending.hit; }
 }
-console.log(data);
+
 var trendings = Object.entries(data).map((e) => ( {['tag']:e[0],hit:e[1]} ));
-console.log(trendings);
+
 trendings.sort(function(a,b){ return b['hit'] - a['hit'] });
 var mxLen = Math.min(10,trendings.length);
 trendings= trendings.splice(0,mxLen);
 global.trendingTags= trendings;    
-console.log("updated");   
+
 }
 
 const getTrendingWriters = async()=>{
     var allTrending =await TrendingWriter.find({});   
     var data={};
     for(var trending of allTrending)
-    {    console.log(typeof(trending.hit));
+    {    
         if(data[trending.user])
         {
             data[trending.user]=data[trending.user]+trending.hit; 
@@ -83,7 +83,7 @@ const getTrendingWriters = async()=>{
     trendingsData.push(obj);
     }
     global.trendingWriters= trendingsData;   
-    console.log("updated");
+    
 
 }
 
@@ -114,7 +114,7 @@ const deleteTrendingOldBlogs = async()=>{
         if(trnd.day.getTime()<=minDate)
         {
             await Trending.findByIdAndDelete(trnd._id);
-            console.log("deleting");
+    
         }
     }
 }
@@ -129,7 +129,7 @@ const deleteTrendingOldTags = async()=>{
         if(trnd.day.getTime()<=minDate)
         {
             await TrendingTag.findByIdAndDelete(trnd._id);
-            console.log("deleting");
+           
         }
     }
 }
@@ -145,7 +145,7 @@ const deleteTrendingOldWriters = async()=>{
         if(trnd.day.getTime()<=minDate)
         {
             await TrendingWriter.findByIdAndDelete(trnd._id);
-            console.log("deleting");
+          
         }
     }
 }

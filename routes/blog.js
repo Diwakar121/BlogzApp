@@ -20,9 +20,7 @@ router.get('/blogs', async(req, res) => {
             var trendings = global.trendings;
             var trendingTags= global.trendingTags;
             var trendingWriters=global.trendingWriters;
-            console.log(trendings);
-            console.log(trendingTags);
-            console.log(trendingWriters);
+           
     
     const blogs=await Blog.find({});
 
@@ -47,9 +45,7 @@ router.get('/blogs/new',isLoggedIn, (req, res) => {
 // create new blogs
 router.post('/blogs',isLoggedIn,upload.array('image'), async(req,res)=>{
     const uploader =async (path) => await cloudinary.uploads(path,'Images')
-    console.log("here finall")
-    console.log(JSON.parse(req.body.extra));
-
+  
 const reqObj = JSON.parse(req.body.extra);
 
     const images =[];
@@ -91,15 +87,15 @@ const reqObj = JSON.parse(req.body.extra);
     try {
        
 var blogBody = {user: req.user._id,title:reqObj.title,imgCover:coverImg,desc:reqObj.desc,images:images,texts:reqObj.texts,reviews:reqObj.reviews,tags:reqObj.tags }
-        console.log(blogBody);
+        
     var id;
   await Blog.create(blogBody).then(savedDoc => id=savedDoc.id); 
     var user = await User.findById(req.user._id);
-    console.log(user);
+  
         user.myblogs.push(id);
         user.save();
 
-    console.log(user);
+
 
     for( var tg  of blogBody.tags)
     {
@@ -157,7 +153,7 @@ router.put('/blogs/:id',isLoggedIn,isSameUserBlog,async(req, res) => {
 
 router.get('/blogs/:id/edit',isLoggedIn,isSameUserBlog, async(req, res) => {
     try{
-        console.log(req.blog);
+    
     // const blog=await Blog.findById(req.params.id);
     res.render('blogs/edit',{blog:req.blog});
     }
@@ -182,10 +178,10 @@ const updateTrending = async(req,currDate)=>{
        
     }
     else
-    {   console.log(trnd);
+    {   
         var nwhit=trnd.hit+1;
       await Trending.findByIdAndUpdate(trnd._id,{hit:nwhit});  
-      console.log("reached1");
+
     }
 
 }
@@ -199,12 +195,12 @@ const updateTrendingTags = async(req,currDate,blog)=>{
          if(trndTag==undefined)
          {
             await TrendingTag.create({day:currDate,tag:getTag,hit:1});
-            console.log("created");
+           
          }
          else
          {
             await TrendingTag.findByIdAndUpdate(trndTag._id,{day:currDate,tag:getTag,hit:trndTag.hit+1});
-             console.log("reached2");
+      
          }
 
     }
@@ -216,7 +212,6 @@ const updateTrendingWriters = async(req,currDate,blog)=>{
     var trndWriter = await TrendingWriter.findOne({day:currDate,user:blog.user._id})
     if(trndWriter==undefined)
     {
-       console.log("not found"); 
        await TrendingWriter.create({day:currDate,user:blog.user._id,hit:1});
        console.log(currDate);
     }
@@ -224,7 +219,7 @@ const updateTrendingWriters = async(req,currDate,blog)=>{
     {   
         var nwhit=trndWriter.hit+1;
       await TrendingWriter.findByIdAndUpdate(trndWriter._id,{hit:nwhit});  
-     console.log("reached3");
+ 
     } 
 
 }

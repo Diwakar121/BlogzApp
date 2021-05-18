@@ -11,8 +11,6 @@ const { isLoggedIn ,isSameUserBlog} = require('../middleware');
 router.post("/upload-profilePic",isLoggedIn,upload.single('profilePics'),async(req,res)=>{
 
     
-        console.log("here finall")
-        console.log(req.file);
         const {path} = req.file;
         try {
             let user = await User.findById(req.user._id);

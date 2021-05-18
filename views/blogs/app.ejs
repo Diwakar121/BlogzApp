@@ -12,6 +12,7 @@
           <h4 class="display-6 mb-3"> <i class="fas fa-chart-line" style="margin-right: 20px;"></i>Trending...</h4>
 
           <%for(let trending of trendings){%>
+            <% if(trending) { %>
             <% blog=trending %>
             
             <div class="card mb-5" >
@@ -39,7 +40,7 @@
                 </div>
               </div>
             </div>
-            <%}%>
+            <%} }%>
 
             <hr class="my-4 mt-2 ">
 
