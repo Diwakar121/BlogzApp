@@ -125,7 +125,7 @@ $('#submitPost').click(function(e){
  
 
 
-     fetch('http://localhost:3000/blogs', {
+     fetch('/blogs', {
     method:'POST',
     body:obj	
 }).then((res) => {if(res.status==200)

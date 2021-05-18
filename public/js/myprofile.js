@@ -24,7 +24,7 @@ $('#submit').on('click',function(e){
     var  profile = document.querySelector('#getProfile');
     var formData = new FormData();
     formData.append('profilePics',profile.files[0]);
-fetch('http://localhost:3000/upload-profilePic',{
+fetch('/upload-profilePic',{
     method:'POST',
     body:formData	
 }).then((res) => {if(res.status==200)
