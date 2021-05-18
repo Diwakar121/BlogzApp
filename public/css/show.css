@@ -1,0 +1,24 @@
+
+
+ #blogImg {
+     width:20vw;
+     height:20vw
+ }
+
+
+@media only screen and (max-width: 734px) {
+    #blogImg {
+      width:70vw;
+      height:50vh;}
+      
+      #userImg{
+        width:40vw;
+        height:40vw;
+        padding:4px; 
+        margin:auto;
+      }
+    
+    
+  }
+  
+  

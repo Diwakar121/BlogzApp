@@ -1,0 +1,86 @@
+
+<%- include("../partials/header")%>
+<%- include("../partials/navbar")%>
+<link href="/css/app.css" rel="stylesheet" >
+
+<main class="container" style="margin-top: 5rem;">
+  <%- include("../partials/flash")%>
+
+    <div class="row " id="firstRow" style="min-height:70vh">
+      
+        <div class="col-md-8 sm-12">
+          <h4 class="display-6 mb-3"> <i class="fas fa-chart-line" style="margin-right: 20px;"></i>Trending...</h4>
+
+          <%for(let trending of trendings){%>
+            <% blog=trending %>
+            
+            <div class="card mb-5" >
+              <div class="row no-gutters">
+                <div class="col-md-4 col-sm-12">
+                  <img src="<%= blog.img %>" class="card-img col d-flex align-items-center justify-content-center"  alt="...">
+                </div>
+                <div class="col-md-8 col-sm-12">
+                  <div class="card-body">
+                    <h5 class="card-title m-0 p-0" style="max-height:4vh;"><%= blog.title %></h5>
+                    <p class="card-text m-0 p-0" style="max-height:7vh;  overflow:hidden;   text-overflow: ellipsis;"><%= blog.desc %>...</p>
+                    <p><small class="text-muted">3 mins read</small></p>
+                    <% var i=0 %>
+                    <% if(blog.tags &&  blog.tags.length >0){ %>
+      <%for(let tag of blog.tags){%>
+        <% if(i==5) {break;} %>
+        <% if(tag.length<3){continue;} %> 
+         <p  class="badge rounded-pill bg-secondary" style="font-size:0.8rem"><%= tag %></p>
+        <% i+=1;}}%>
+                    
+                    <p class="text-center" style="max-height:5vh;display:inline-block;">
+                      <a href="/blogs/<%= blog._id %>" class="btn btn-dark ">View Article>></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%}%>
+
+            <hr class="my-4 mt-2 ">
+
+          <h4 class="display-6 mt-2 mb-3"> <i class="fas fa-book-reader" style="margin-right: 20px;"></i>All Articles...</h4>
+      <%for(let blog of blogs){%>
+    <div class="card mb-5" >
+      <div class="row no-gutters">
+        <div class="col-md-4 col-sm-12">
+          <img src="<%= blog.img %>" class="card-img col d-flex align-items-center justify-content-center"  alt="...">
+        </div>
+        <div class="col-md-8 col-sm-12">
+          <div class="card-body">
+            <h5 class="card-title m-0 p-0" style="max-height:4vh;"><%= blog.title %></h5>
+            <p class="card-text m-0 p-0" style="max-height:7vh;  overflow:hidden;   text-overflow: ellipsis;"><%= blog.desc %>...</p>
+            <p><small class="text-muted">3 mins read</small></p>
+            
+            <% var i=0 %>
+            <%for(let tag of blog.tags){%>
+              <% if(i==5) {break;} %>
+              <% if(tag.length<3){continue;} %> 
+               <p  class="badge rounded-pill bg-secondary" style="font-size:0.8rem"><%= tag %></p>
+              <% i+=1;}%>
+            <p class="text-center" style="max-height:5vh;display:inline-block;">
+              <a href="/blogs/<%= blog._id %>" class="btn btn-dark ">View Article>></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%}%>
+  </div>
+  
+  
+
+  <%- include("../partials/trendingBox")%>
+
+
+
+
+
+</main>
+
+    
+<%- include("../partials/footer")%>

@@ -1,0 +1,58 @@
+<%- include("../partials/header")%>
+<%- include("../partials/navbar")%>
+
+
+<div class="container" style="margin-top: 5rem; min-height:80vh;">
+
+  <%- include("../partials/flash")%>
+
+  
+    <div class="row ">
+        <div class="col-12 ">
+            <h5 class="card-title fs-1 "> <%= user.username %> </h5>
+            <div class="card" >
+              <div id ="load" ></div>
+                <div id="profileBox" style="background-color:#E8E8E8">
+                <img id="profile" src="<%= user.profilePic.url %>" class="rounded mt-2 mx-auto d-block" style="width:30vw;height:30vw">
+            
+
+                </div>
+                
+
+                <div class="card-body">
+                
+                  <h5 class="card-title"><%=user.username %></h5>
+                
+                  <p class="card-text" style="white-space: pre-wrap;"><%= user.email %></p>
+
+  
+                </div>
+              </div>
+        </div>
+     
+
+
+
+        <div class="col-12 ">
+         
+          <div class="card" >
+              <div class="card-body">
+                  
+                <h5 class="card-title"> Blogs by <%= user.username %></h5>
+
+                <ul class="list-group">
+               <% for(let blog of user.myblogs) { %>
+                <li class="list-group-item "><a href="/blogs/<%= blog._id %>" style="color: inherit;text-decoration: none;"><p class="card-text" style="white-space: pre-wrap;font-weight: bold;"><%= blog.title %></p></a></li>
+               <% } %>
+                </ul>
+              </div>
+            </div>
+      </div>
+
+        </div>
+        
+        
+</div>
+
+
+<%- include("../partials/footer")%>

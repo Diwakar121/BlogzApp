@@ -1,0 +1,19 @@
+.trending {
+    position: fixed;
+    top:20vh;
+    right:1vw;
+}
+ 
+
+@media only screen and (max-width: 734px) {
+    .trending {
+        position: absolute;
+        top:15vh;
+      margin:auto;
+    }
+  #firstRow{
+    margin-top: 60vh;
+  }
+
+  }
+  

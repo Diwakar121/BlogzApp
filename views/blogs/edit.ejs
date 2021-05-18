@@ -1,0 +1,42 @@
+<%- include("../partials/header")%>
+<%- include("../partials/navbar")%>
+
+
+
+<div class="container" style="margin-top:5rem;width:80vw;margin-bottom: 11rem; " id="<%= blog._id %>">
+  <%- include("../partials/flash")%>
+            <form  action="/blogs" method="POST" style="max-width:70%;margin:10px auto" novalidate>
+                <div class="mb-3">
+                  <label for="name" class="form-label">Title of your blog</label>
+                  <input id="title" type="text" class="form-control"  placeholder="Title"  name="blog[title]" value="<%= blog.title %>" required>
+                
+                </div>
+                <div class="mb-3">
+                  <label for="img" class="form-label">Cover Image URL</label>
+                  <input id="img" type="text" class="form-control"  placeholder="Image URL" name="blog[img]" value="<%= blog.img %>" required>
+                 
+                </div>
+                
+                <div class="mb-3" >
+                    <label for="desc" class="form-label">Description in less than 50 words</label>
+                    <textarea  id="desc" class="form-control" style="white-space: pre-wrap;" cols="20" rows="5" name="blog[content]" required><%= blog.desc %></textarea>
+             
+                  </div>
+
+
+                  <div class="mb-3" id="last"></div>
+
+                  <button type="button" class="btn btn-secondary addImg" id="addImg">Add ImageBox</button>
+                  <button type="button" class="btn btn-secondary addText" id="addText">Add TextBox</button>
+                  <div class="mt-3">
+                <button id="submitPost" type="submit" class="btn btn-success">Submit Post</button>
+
+                </div>
+              </form>
+              
+   
+</div>
+
+<script src="/js/edit.js"></script>
+
+<%- include("../partials/footer")%>

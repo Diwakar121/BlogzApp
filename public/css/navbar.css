@@ -1,0 +1,38 @@
+.navbar ,.footer {
+background-color:#000000;
+
+}
+
+.navbar a {
+    color:white;
+}
+
+.navbar-brand {
+    font-family: "Orbitron", sans-serif;
+    letter-spacing: 0.1em;
+  }
+  
+
+
+  .srchIcon {
+      /* position: relative;
+        right:0px;
+        top:0px; */
+        height: 100%;
+  }
+
+#srchBox {
+
+  width:30vw;
+  margin:auto ;
+}
+  @media only screen and (max-width: 734px) {
+    #srchBox {
+      width:90vw;
+      background-color: brown;
+      margin:0px;
+    }
+    
+  }
+  
+  

@@ -1,0 +1,51 @@
+<nav class="navbar  fixed-top navbar-expand-lg " >
+    <div class="container-fluid">
+      
+      <a class="navbar-brand" href="/"><i class="fas fa-newspaper" style="margin-right:5px"></i>BlogzApp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span style="color:white;"><i class="fas fa-bars"></i></span>
+      </button>
+      <div class="collapse navbar-collapse"  id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/blogs">ViewBlogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blogs/new">WriteBlog</a>
+          </li>
+        
+        </ul>
+     
+        <div class=" input-group md-form form-sm form-2 pl-0 " id="srchBox">
+          <input class="form-control my-0 py-1 amber-border" id="srchVal"  type="text" placeholder="Search" aria-label="Search">
+          <div class="input-group-append srchIcon">
+            <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey" style="height:25px;" aria-hidden="true"></i></span>
+          </div>
+          </div>
+
+
+        <div class="navbar-nav ml-auto " >
+          
+              <%if(!currentUser){%>
+                <a href="/login" class="nav-link active">Login</a>
+              
+                <%}else{%>
+              <a href="/myprofile" class="nav-link active text-capitalize">Hello <%=currentUser.username%></a>
+        
+              <a href="#" id="notify" class="nav-link active"><i class="far fa-bell"></i></i> 
+                <sup><span class="badge bg-danger">0</span></sup> 
+             </a>
+
+
+              
+              
+              
+               
+             
+            <%}%>
+      
+      </div>
+      </div>
+    </div>
+    <script src='/js/search.js'></script>
+  </nav>
