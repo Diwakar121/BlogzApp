@@ -6,6 +6,6 @@ A Full Fledged Blogging WebApp   , Write and Read articles
 - Database - MongoDB
 - Frameworks/Libraries - ExpreesJS,Mongoose ODM
 # Deployment 
-- Heroku @ http://blogzapp.herokuapp.com/blogs
+- Heroku @ https://blogzapp.herokuapp.com
 
 
