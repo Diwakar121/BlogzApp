@@ -9,7 +9,7 @@ A Full Fledged Blogging WebApp   , Write and Read articles
 - Heroku @ https://blogzapp.herokuapp.com
 # Features of the app
 - Complete User Authentication (Login / Signup)
-- Image and File Uploads
+- Image and File Uploads using multer and cloudinary
 - Complete Node API with Full CRUD Functionality
 - Create Blogs -add images, texts with dynamic UI  
 - Serach Article (using Tags based Search System)
