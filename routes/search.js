@@ -11,7 +11,7 @@ router.get('/search',async(req, res) => {
           if(!srchResult)
           {
             
-                 res.render('blogs/srchShow',{srchResult:{links:[]}});
+                 res.render('blogs/srchShow',{srchResult:{links:[]},topic:req.query.q});
           }
     
           res.render('blogs/srchShow',{srchResult,topic:req.query.q});
